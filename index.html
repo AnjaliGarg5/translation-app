@@ -10,6 +10,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
+        :root{
+            --primary-color: #FCA5A5;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -25,7 +29,7 @@
         header {
             width: 100%;
             height: 10vh;
-            background-color: #FCA5A5;
+            background-color: var(--primary-color);
             font-size: 2rem;
             text-align: center;
             padding: 1rem;
@@ -48,7 +52,7 @@
         }
 
         button {
-            background-color: #F2C94C;
+            background-color: var(--primary-color);
             border: none;
             margin: 1rem 0rem;
             padding: 1rem 2rem;
@@ -72,7 +76,7 @@
             bottom: 0;
             width: 100%;
             padding: 1rem;
-            background-color: #F2C94C;
+            background-color: var(--primary-color);
             text-align: center;
         }
 
@@ -86,13 +90,14 @@
 <body>
     
     <header>
-        banana talk
+        translation
     </header>
 
     <main>
         <textarea id="input-area" placeholder="Place your text here which you want to convert to banana language"></textarea>
         <div>
-            <button id="btn-translate">Translate</button>
+            <button id="btn-translate-pirate">Translate to Pirate</button>
+            <button id="btn-translate-ferb">Translate to Latin-Ferb</button>
         </div>
         <div>Translation will appera here 👇</div>
         <div id="output-area"></div>
@@ -100,8 +105,7 @@
 
     <footer>
         <div style="font-size: x-large;">about</div>
-        <p>Are you a fan of minions? Did you know that the gibberish they say is an actual language. Use the translator
-            to convert your text from English to Minion speak or Banana language.</p>
+        <p>It is a pirate language translator.</p>
     </footer>
 
 </body>

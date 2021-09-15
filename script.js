@@ -1,26 +1,50 @@
 var input = document.querySelector("#input-area")
 var output = document.querySelector("#output-area")
-var translateBtn = document.querySelector("#btn-translate")
+var translateBtnPirate = document.querySelector("#btn-translate-pirate")
+var translateBtnFerb = document.querySelector("#btn-translate-ferb")
 
-var serverUrl = "https://api.funtranslations.com/translate/ferb-latin.json"
+var urlPirate = "https://api.funtranslations.com/translate/pirate.json"
+var urlFerb = "https://api.funtranslations.com/translate/ferb-latin.json"
 
-function translatedUrl(input) {
+function translatedUrl(input, url) {
     var encodedURI = encodeURI(input)
-    return `${serverUrl}?text=${encodedURI}`
+    return `${url}?text=${encodedURI}`
 }
 
 function errorHandler(error) {
     console.log("Error Ocurred: " + error)
 }
 
-translateBtn.addEventListener('click', () => {
+translateBtnPirate.addEventListener('click', () => {
+
     var inputTxt = input.value 
-    var url = translatedUrl(inputTxt)
+    var url = translatedUrl(inputTxt, urlPirate)
     console.log(url);
 
     fetch(url)
     .then(response => response.json())
-    .then(json => output.innerText = json.contents.translated)
+    .then(json => {
+        output.innerText = json.contents.translated
+    })
     .catch(errorHandler)
+    
 })
+
+translateBtnFerb.addEventListener('click', () => {
+
+    var inputTxt = input.value 
+    var url = translatedUrl(inputTxt, urlFerb)
+    console.log(url);
+
+    fetch(url)
+    .then(response => response.json())
+    .then(json => {
+        output.innerText = json.contents.translated
+    })
+    .catch(errorHandler)
+    
+})
+
+
+
 
